@@ -6,5 +6,3 @@ Adrian Tomicki
 
 Boop
 Beep
-
-26.10.2022
