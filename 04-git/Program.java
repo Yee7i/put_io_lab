@@ -8,6 +8,6 @@ public class Class_Example
     public void disp() 
     {
         String name = "JavaInterviewPoint";// Local variable inside method
-        System.out.println("Welcome " + name + "!!!");
+        System.out.println("Welcome " + name);
     }
 }
