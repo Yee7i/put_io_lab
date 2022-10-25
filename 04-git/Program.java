@@ -7,7 +7,8 @@ public class Class_Example
 
     public void disp() 
     {
-        String name = "JavaInterviewPoint";// Local variable inside method
+        String name = "JavaInterviewPoint2";// Local variable inside method
+
         System.out.println("Welcome " + name); // zmiana 1
     }
 }
