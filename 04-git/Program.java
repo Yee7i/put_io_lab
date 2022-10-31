@@ -9,7 +9,7 @@ public class Class_Example // nastepna zmiana do amenda
 
     public void disp() 
     {
-        String name = "JavaInterviewPoint";// Local variable inside method fragment 3
+        String name = "JavaInterviewPoint";// Local variable inside method fragment 3 pop
 
         System.out.println("Welcome " + name); // zmiana 1
     }
