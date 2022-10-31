@@ -1,11 +1,11 @@
 public class Class_Example // nastepna zmiana do amenda
 {
-    public Class_Example() // fragment 2
+    public Class_Example() // fragment 2 pop
     {
         String value = "Test 2";// Local Variable inside a Constructor
     }
 
-    // fragment 1
+    // fragment 1 pop
 
     public void disp() 
     {
