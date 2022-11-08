@@ -50,10 +50,14 @@ Osoba chcąca zakupić produkt na aukcji.
 
 [Sprzedający](#ac1):
 * [UC1](#uc1): Wystawienie produktu na aukcję
-* ...
+* Otrzymanie należności
+* Przekazanie produktu [Kupującemu](#ac2)
 
 [Kupujący](#ac2)
-* ...
+* [BR1](#br1): Złożenie oferty
+* [BR2](#br2): Rozstrzygnięcie aukcji
+* Przekazanie należności [Sprzedającemu](#ac1)
+
 
 ---
 <a id="uc1"></a>
@@ -77,21 +81,63 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Złożenie oferty kupna
 
-**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
+**Aktorzy:** [Kupujący](#ac2)
 
 **Scenariusz główny:**
-1. ...
+1. [Kupujący](#ac2) wyraża chęć zakupu produktu.
+2. System prosi o podanie oferty [Kupującego](#ac2)
+3. [Kupujący](#ac2) wprowadza ofertę do systemu.
+4. System weryfikuje poprawność oferty.
+5. System zmienia obecną cenę produktu.
+6. System informuje o pomyślnie złożonej ofercie.
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+1.A. Aukcja jest zakończona.
+* 1.A.1. System informuje [Kupującego](#ac2) o niedostępności produktu.
+
+4.A. Oferta jest mniejsza od aktualnej ceny produktu.
+* 4.A.1. System informuje [Kupującego](#ac2) o zbyt niskiej ofercie.
+* 4.A.2. Przejdź do kroku 2.
+
+4.B. Oferta nie jest większa od sumy obecnej oferty i [minimalnej kwoty przebicia](#br1).
+* 4.B.1. System informuje [Kupującego](#ac2) o [minimalnej kwocie przebicia](#br1).
+* 4.B.2. Przejdź do kroku 2.
+
+5.A. Obecna kwota produktu uległa zmianie podczas wprowadzania oferty.
+* 5.A.1. System informuje o zmianie obecnej ceny i wyświetla cenę aktualną.
+* 5.A.2. Przejdź do kroku 2.
 
 ---
 
-## Obiewkty biznesowe (inaczje obiekty dziedzinowe lub informatycjne)
+<a id="uc3"></a>
+### UC3: Zakończenie aukcji
+
+**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2)
+
+**Scenariusz główny:**
+1. System blokuje wprowadzanie nowych ofert do aukcji.
+2. System wybiera kupującego, który w momencie zakończenia aukcji posiadał najwyższą ofertę.
+3. System informuje [Sprzedającego](#ac1) i [Kupującego](#ac2) o zakończeniu oferty.
+4. System wymienia dane między [Sprzedającym](#ac1) a [Kupującym](#ac2). 
+5. System prosi obie strony o potwierdzenie otrzymania danych i finalizacji oferty.
+6. System informuje o pomyślnym zakończeniu aukcji.
+7. System archiwizuje aukcję.
+
+**Scenariusze alternatywne:** 
+
+2.A. Oferta nie ma kupujących.
+* 2.A.1. System informuje [Sprzedającego](#ac1) o braku zainteresowanych ofertą.
+* 2.A.2. Przejdź do kroku 7.
+
+5.A. Brak potwierdzenia otrzymania danych.
+* 5.A.1. Przejdź do kroku 4.
+
+---
+
+## Obiekty biznesowe (inaczej obiekty dziedzinowe lub informatyczne)
 
 ### BO1: Aukcja
 
