@@ -137,6 +137,19 @@ Osoba chcąca zakupić produkt na aukcji.
 
 ---
 
+<a id="uc4"></a>
+### UC4: Anulowanie aukcji
+
+**Aktorzy:** [Sprzedający](#ac1)
+
+**Scenariusz główny:**
+1. [Sprzedający](#ac1) informuje system o chęci anulowania aukcji.
+2. System blokuje wprowadzanie nowych ofert do aukcji.
+3. System informuje [Sprzedającego](#ac1) o zakończeniu aukcji.
+4. System archiwizuje aukcję.
+
+---
+
 ## Obiekty biznesowe (inaczej obiekty dziedzinowe lub informatyczne)
 
 ### BO1: Aukcja
@@ -146,6 +159,10 @@ Aukcja jest formą zawierania transakcji kupna-sprzedaży, w której Sprzedając
 ### BO2: Produkt
 
 Fizyczny lub cyfrowy obiekt, który ma zostać sprzedany w ramach aukcji.
+
+### BO3: Użytkownik
+
+Osoba w systemie, która ma określone dane i może być [Sprzedającym](#ac1), lub [Kupującym](#ac2).
 
 ## Reguły biznesowe
 
@@ -163,8 +180,10 @@ Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (u
 ## Macierz CRUDL
 
 
-| Przypadek użycia                                  | Aukcja | Produkt | ... |
+| Przypadek użycia                         | Aukcja | Produkt | Użytkownik |
 | ------------------------------------------------- | ------ | ------- | --- |
-| UC1: Wystawienia produktu na aukcję               |    C   |    C    | ... |
-| ???                                               |  ...   |  ...    | ... |
+| UC1: Wystawienie produktu na aukcję      |   C    |   C    | - |
+| UC2: Złożenie oferty kupna               |   R    |   -    | U |
+| UC3: Zakończenie aukcji | RUD | RU | RUD |
+| UC4: Anulowanie aukcji | UD | - | U
 
