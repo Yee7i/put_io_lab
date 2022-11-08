@@ -164,6 +164,10 @@ Fizyczny lub cyfrowy obiekt, który ma zostać sprzedany w ramach aukcji.
 
 Osoba w systemie, która ma określone dane i może być [Sprzedającym](#ac1), lub [Kupującym](#ac2).
 
+### BO4: Aukcja zarchiwizowana
+
+Aukcja, która dobiegła końca i została zarchiwizowana.
+
 ## Reguły biznesowe
 
 <a id="br1"></a>
@@ -180,10 +184,10 @@ Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (u
 ## Macierz CRUDL
 
 
-| Przypadek użycia                         | Aukcja | Produkt | Użytkownik |
-| ------------------------------------------------- | ------ | ------- | --- |
-| UC1: Wystawienie produktu na aukcję      |   C    |   C    | - |
-| UC2: Złożenie oferty kupna               |   R    |   -    | U |
-| UC3: Zakończenie aukcji | RUD | RU | RUD |
-| UC4: Anulowanie aukcji | UD | - | U
+| Przypadek użycia    | Aukcja | Produkt | Użytkownik | Aukcja zarchiwizowana |
+| ------------------------------------------------- | ------ | ------- | --- | --- |
+| UC1: Wystawienie produktu na aukcję      |   C    |   C    | - | - |
+| UC2: Złożenie oferty kupna               |   R    |   -    | U | - |
+| UC3: Zakończenie aukcji | RUD | R | RU | C |
+| UC4: Anulowanie aukcji | UD | - | U | C |
 
